@@ -3,10 +3,6 @@
 ## Description
 This is the Phase 3 Code-challenge 1;
 
-      - The web application is intended to allow you to view a list of recent bank transactions, in addition to adding a transaction on the app
-      
-      - The app uses Semantic UI for styling. If you see any unfamiliar classNames on some components, don't sweat! That's coming from Semantic UI and you shouldn't need to touch it.
-
 ## Getting started
 To use the content on this repository, ensure you have the following:
 
