@@ -1,4 +1,5 @@
 #Magazine initialized
+require 'pry'
 
 class Magazine
 
@@ -17,8 +18,11 @@ class Magazine
     end
 
     mag1 = Magazine.new("Speed", "Cars")
+    #puts mag1.name, + mag1.category
     mag2 = Magazine.new("Cribs", "Houses")
-    puts mag1.name, + mag1.category
+    #puts mag2.name, + mag2.category
+    binding.pry
+    
  
 
 
