@@ -1,4 +1,5 @@
 # Article Initialized
+require 'pry'
 
 class Article
 
@@ -10,6 +11,8 @@ class Article
         @author = author
         @magazine = magazine
         @title = title
+        author.articles << self
+        magazine.articles << self
         @@all << self
         
     end
@@ -18,23 +21,20 @@ class Article
         @@all
     end
 
-    
-    # Article.new('Zamil Padron', 'Programming', 'Code-101')
-    # puts title
+    def title
+        @title
+    end
 
-    # def self.all
-    #         rows = DB.execute(SELECT * FROM articles)
-    #         rows.map do |row|
-    #         self.new(row)
-    #         end
-    #     end
-    # def initialize (row)
-    #     @id = row["id"]
-    #     @author = author["author"]
-    #     @magazine = magazine["magazine"]
-    #     @title = title["title"]
-    # end
+    def magazine
+        @magazine.name
+    end
+
+    def author
+        @author.name
+    end
+
     private
 
     attr_writer
 end
+

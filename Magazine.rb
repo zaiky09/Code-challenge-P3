@@ -3,13 +3,14 @@ require 'pry'
 
 class Magazine
 
-    attr_accessor :name, :category
+    attr_accessor :name, :category, :articles
     
     @@all = []
 
     def initialize (name, category)
         @name = name
         @category = category
+        @articles = []
         @@all << self 
     end
 
@@ -17,30 +18,39 @@ class Magazine
         @@all
     end
 
-    mag1 = Magazine.new("Speed", "Cars")
-    #puts mag1.name, + mag1.category
-    mag2 = Magazine.new("Cribs", "Houses")
-    #puts mag2.name, + mag2.category
-    binding.pry
-    
- 
+    def name
+        @name
+    end
 
+    def category
+        @category
+    end
 
-    # a = Magazine.new("Code-101", "Progamming")
-    # puts a.name + a.category
+    def contributors
+        @articles.map(&:author).map { |author_name| Author.all.find { |author| author.name == author_name } }
+    end
 
-    # # attr_accessor :author, :magazine, :title
-    #     def self.all
-    #         rows = DB.execute(SELECT * FROM articles)
-    #         rows.map do |row|
-    #         self.new(row)
-    #         end
-    #     end
-    # def initialize (row)
-    #     @id = row["id"]
-    #     @author = author["author"]
-    #     @magazine = magazine["magazine"]
-    #     @title = title["title"]
-    # end
+    def self.find_by_name(name)
+        all.find { |magazine| magazine.name == name }
+    end
 
+    def article_titles
+        @articles.map(&:title)
+    end
+
+    def contributing_authors
+
+        author_counts = {}
+        
+        # Count the number of articles for each author
+        @articles.each do |article|
+          author = article.author
+          author_counts[author] ||= 0
+          author_counts[author] += 1
+        end
+        # Return the authors who have written more than 2 articles
+        author_counts.select { |author, count| count > 2 }.keys 
+    end
 end
+
+    

@@ -2,42 +2,38 @@
 
 class Author
 
-    attr_reader :name
-
-    @articles = []
+    attr_reader :name, :articles
 
     def initialize(name)
         @name = name
+        @articles = []
         
     end
 
-    def articles
-        @articles {&:magazine}.uniq
+    def name
+        @name
     end
 
+    def articles
+        @articles
+    end
 
-    
+    def magazines
+        @articles.map { |article| Magazine.find_by_name(article.magazine) }.compact.uniq
+    end
 
+    def add_article(magazine, title)
+        newArticle = Article.new(self, magazine, title)
+        @article << newArticle
+    end
 
-    # def self.all
-    #     rows = DB.execute(SELECT * FROM articles)
-    #     rows.map do |row|
-    #     self.new(row)
-    #     end
-    # end
+    def topic_areas
+        magazines.map(&:category).uniq
+    end
 
-    # def initialize (row)
-    #     @id = row["id"]
-    #     @author = author["author"]
-    #     @magazine = magazine["magazine"]
-    #     @title = title["title"]
-    # end
-    
     private
 
     attr_writer :name
 
 end
 
-a1 = Author.new('Zamil Padron')
-puts a1.name
