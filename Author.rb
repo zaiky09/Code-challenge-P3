@@ -4,12 +4,19 @@ class Author
 
     attr_reader :name
 
+    @articles = []
+
     def initialize(name)
         @name = name
-        @articles = []
+        
     end
-    a1 = Author.new('Zamil Padron')
-    puts a1.name
+
+    def articles
+        @articles {&:magazine}.uniq
+    end
+
+
+    
 
 
     # def self.all
@@ -31,3 +38,6 @@ class Author
     attr_writer :name
 
 end
+
+a1 = Author.new('Zamil Padron')
+puts a1.name

@@ -17,6 +17,7 @@ class Article
     def self.all
         @@all
     end
+
     
     # Article.new('Zamil Padron', 'Programming', 'Code-101')
     # puts title
