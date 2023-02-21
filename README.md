@@ -11,7 +11,7 @@ This is the Phase 3 Code-challenge 1;
 To use the content on this repository, ensure you have the following:
 
       - A computer that runs on either of the following; (Windows 7+, Linux, Mac OS)
-      - nodejs 9.0+
+      - ruby version 2.7
       
 ## Installation
 To use this repository on your machine requires some simple steps
