@@ -19,12 +19,12 @@ class Author
     end
 
     def magazines
-        @articles.map { |article| Magazine.find_by_name(article.magazine) }.compact.uniq
+        @articles.map { |art| Magazine.find_by_name(art.magazine) }.compact.uniq
     end
 
     def add_article(magazine, title)
-        newArticle = Article.new(self, magazine, title)
-        @article << newArticle
+        newArt = Article.new(self, magazine, title)
+        @article << newArt
     end
 
     def topic_areas

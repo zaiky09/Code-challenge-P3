@@ -19,6 +19,7 @@ art2 = Article.new(a2, mag2, 'Ruby')
 puts art2.title
 Article.all
 
+contr1 =
 
 # a1 = Author.new('Zamil Padron')
 # a2 = Author.new('El Hefe')

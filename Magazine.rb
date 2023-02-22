@@ -27,11 +27,11 @@ class Magazine
     end
 
     def contributors
-        @articles.map(&:author).map { |author_name| Author.all.find { |author| author.name == author_name } }
+        @articles.map(&:author).map { |auth_n| Author.all.find { |author| author.name == auth_n } }
     end
 
     def self.find_by_name(name)
-        all.find { |magazine| magazine.name == name }
+        all.find { |mag| mag.name == name }
     end
 
     def article_titles
@@ -43,8 +43,8 @@ class Magazine
         author_counts = {}
         
         # Count the number of articles for each author
-        @articles.each do |article|
-          author = article.author
+        @articles.each do |art|
+          author = art.author
           author_counts[author] ||= 0
           author_counts[author] += 1
         end
